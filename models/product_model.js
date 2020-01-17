@@ -16,6 +16,9 @@ var product={
     },
     deleteProduct:function(p_id,callback){
         return db.query('delete from product_tbl where p_id=?',[p_id],callback);
+    },
+    updateImage:function(p_id,filename,callback){
+        return db.query('update product_tbl set p_img=? where p_id=?',[filename,p_id],callback);
     }
 }
 
