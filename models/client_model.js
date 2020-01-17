@@ -3,10 +3,6 @@ var client={
     getAllclient:function(callback) {
         return db.query('select * from client_tbl',callback);
     },
-    // addclient:function(item,callback) {
-    //     return db.query('insert into  client_tbl values(?,?,?,?)',[item.c_email,item.c_pass,item.c_name,item.c_con,item.c_dob,item.c_b_pic,item.c_a_pic,item.c_goal,item.fk_t_id,item.fk_s_id,item.p_pur_det,item.c_type,item.c_gen],callback);
-
-    // },
     deleteclient:function(c_id,callback) {
             return db.query('delete from client_tbl where c_id=?',[c_id],callback);
         },
