@@ -10,11 +10,15 @@ var clientRouter=require('./routes/client_routes');
 var signUpRoutes=require('./routes/signup_routes');
 var productRoutes=require('./routes/product_routes');
 var trainerRoutes=require('./routes/trainer_routes');
+var categoryRoutes=require('./routes/category_routes');
+var subcategoryRoutes=require('./routes/subcategory_routes');
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
@@ -28,6 +32,8 @@ app.use('/client',clientRouter);
 app.use('/signup',signUpRoutes);
 app.use('/product',productRoutes);
 app.use('/trainer',trainerRoutes);
+app.use('/category',categoryRoutes);
+app.use('/subcategory',categoryRoutes);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
