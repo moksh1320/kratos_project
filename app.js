@@ -11,6 +11,7 @@ var signUpRoutes=require('./routes/signup_routes');
 var productRoutes=require('./routes/product_routes');
 var categoryRoutes=require('./routes/category_routes');
 var subcategoryRoutes=require('./routes/subcategory_routes');
+var MultipleRoutes=require('./routes/multiple_routes');
 var app = express();
 
 // view engine setup
@@ -32,6 +33,7 @@ app.use('/signup',signUpRoutes);
 app.use('/product',productRoutes);
 app.use('/category',categoryRoutes);
 app.use('/subcategory',categoryRoutes);
+app.use('/multiple',MultipleRoutes);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
