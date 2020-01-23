@@ -12,16 +12,16 @@ router.get('/',function(req,res,next){
         }
     });
 });
-router.get('/:t_id',function(req,res,next){
-    trainer.get.editTrainer(req.params.t_id,function(err,rows){
-        if(err){
-            res.json(err);
-        }
-        else{
-            res.json(rows);
-        }
-    });
-});
+// router.get('/:t_id',function(req,res,next){
+//     trainer.get.editTrainer(req.params.t_id,function(err,rows){
+//         if(err){
+//             res.json(err);
+//         }
+//         else{
+//             res.json(rows);
+//         }
+//     });
+// });
 router.post('/',function(req,res,next){
     trainer.addTrainer(req.body,function(err,rows){
         console.log(req.body);
@@ -43,8 +43,8 @@ router.delete('/:id',function(req,res,next){
         }
     });
 });
-router.put('/:t_id',function(req,res,next){
-    trainer.updateTrainer(req.params.t_id,req.body,function(err,rows){
+router.put('/',function(req,res,next){
+    trainer.updateTrainer(req.body,function(err,rows){
         if(err){
             res.json(err);
         }
@@ -53,4 +53,15 @@ router.put('/:t_id',function(req,res,next){
         }
     });
 });
+router.get('/:t_id', function (req, res, next) {
+    trainer.getTrainerById(req.params.t_id, function (err, rows) {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            res.json(rows);
+        }
+    });
+});
+
 module.exports=router;
