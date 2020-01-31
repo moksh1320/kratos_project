@@ -5,7 +5,6 @@ var multer = require('multer');
 var path = require('path');
 
 var storage = multer.diskStorage({
-    
     destination: (req, file, cb) => {
         cb(null, 'public/images/product_images')
     },
@@ -18,6 +17,7 @@ var upload = multer({ storage: storage });
 
 router.post('/', upload.single('image'), function (req, res, next) {
     product.addProduct(req.body, req.file.originalname != 'null' ? req.file.filename : null, function (err, rows) {
+        console.log(req.body);
         if (err) {
             res.json(err);
         }
@@ -57,8 +57,7 @@ router.put('/', function (req, res, next) {
     });
 });
 router.put('/:p_id',upload.single('image'), function (req, res, next) {
-    console.log(req.file != null);
-    product.updateImage(req.params.p_id, req.file != null ? req.file.filename : null, function (err, rows) {
+    product.updateImage(req.params.p_id, req.file.originalname != 'null' ? req.file.filename : null, function (err, rows) {
         if (err) {
             res.json(err);
         }

@@ -12,7 +12,7 @@ var productRoutes=require('./routes/product_routes');
 var trainerRoutes=require('./routes/trainer_routes');
 var categoryRoutes=require('./routes/category_routes');
 var subcategoryRoutes=require('./routes/subcategory_routes');
-var MultipleRoutes=require('./routes/multiple_routes');
+var multipleRoutes=require('./routes/multiple_routes');
 var app = express();
 
 // view engine setup
@@ -35,7 +35,7 @@ app.use('/product',productRoutes);
 app.use('/trainer',trainerRoutes);
 app.use('/category',categoryRoutes);
 app.use('/subcategory',subcategoryRoutes);
-app.use('/multiple',MultipleRoutes);
+app.use('/multiple',multipleRoutes);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
