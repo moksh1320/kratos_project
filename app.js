@@ -34,7 +34,7 @@ app.use('/signup',signUpRoutes);
 app.use('/product',productRoutes);
 app.use('/trainer',trainerRoutes);
 app.use('/category',categoryRoutes);
-app.use('/subcategory',categoryRoutes);
+app.use('/subcategory',subcategoryRoutes);
 app.use('/multiple',MultipleRoutes);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

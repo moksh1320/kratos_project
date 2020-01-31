@@ -3,7 +3,7 @@ var router=express.Router();
 var subcategory=require('../models/subcategory_model');
 
 router.get('/',function(req,res,next){
-    category.getSubategory(function(err,rows){
+    subcategory.getSubcategory(function(err,rows){
         if(err){
             res.json(err);
         }
@@ -13,4 +13,4 @@ router.get('/',function(req,res,next){
     });
 });
 
-module.exports = subcategory;
+module.exports = router;
