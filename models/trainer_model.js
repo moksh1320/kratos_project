@@ -4,6 +4,7 @@ var trainer={
             return db.query('select * from trainer_tbl',callback);
         },
         addTrainer:function(item,callback){
+            console.log(item.t_name);
             return db.query('insert into trainer_tbl (t_name,t_gen,t_dob,t_con,t_qlf,t_exp) values(?,?,?,?,?,?)',[item.t_name,item.t_gen,item.t_dob,item.t_con,item.t_qlf,item.t_exp],callback);
         },
         getTrainerById:function(t_id,callback){
