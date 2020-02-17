@@ -7,6 +7,10 @@ var promo = {
     },
     getPromo:function(callback){
         return db.query('select * from promo',callback);
+    },
+    deletePromo:function(pro_id,callback)
+    {
+        return db.query('delete from promo where pro_id=?',[pro_id],callback)
     }
 }
 
