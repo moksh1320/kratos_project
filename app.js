@@ -14,6 +14,7 @@ var categoryRoutes=require('./routes/category_routes');
 var subcategoryRoutes=require('./routes/subcategory_routes');
 var multipleRoutes=require('./routes/multiple_routes');
 var emailRoutes=require('./routes/email_routes');
+var promoRoutes=require('./routes/promo_routes');
 var app = express();
 
 // view engine setup
@@ -38,7 +39,7 @@ app.use('/category',categoryRoutes);
 app.use('/subcategory',subcategoryRoutes);
 app.use('/multiple',multipleRoutes);
 app.use('/emailsender',emailRoutes);
-
+app.use('/promo',promoRoutes);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
