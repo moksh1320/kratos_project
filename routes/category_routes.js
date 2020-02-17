@@ -4,7 +4,7 @@ var category=require('../models/category_model');
 
 router.post('/:ct_id',function(req,res,next){
     // console.log(req.body.sct_name);
-    console.log(req.params.inPost);
+    console.log(req.params.ct_id);
     category.addCategory(req.body,req.params.ct_id,function(err,rows){
         if(err){
             res.json(err);
@@ -14,6 +14,7 @@ router.post('/:ct_id',function(req,res,next){
         }
     });
 });
+
  
 router.get('/',function(req,res,next){
     category.getCategory(function(err,rows){

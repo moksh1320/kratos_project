@@ -13,4 +13,16 @@ router.get('/',function(req,res,next){
     });
 });
 
+router.post('/:ct_id',function(req,res,next){
+    // console.log(req.body.sct_name);
+    console.log(req.params.ct_id);
+    subcategory.addSubCategory(req.body,req.params.ct_id,function(err,rows){
+        if(err){
+            res.json(err);
+        }
+        else{
+            res.json(rows);
+        }
+    });
+});
 module.exports = router;
