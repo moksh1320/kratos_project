@@ -72,7 +72,7 @@ router.delete('/:id',function(req,res,next){
     });
 });
 
-router.put('/:p_id',upload.single('image'), function (req, res, next) {
+router.put('/:t_id',upload.single('image'), function (req, res, next) {
     trainer.updateImage(req.params.t_id, req.file.originalname != 'null' ? req.file.filename : null, function (err, rows) {
         if (err) {
             res.json(err);
