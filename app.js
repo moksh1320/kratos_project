@@ -15,6 +15,7 @@ var subcategoryRoutes=require('./routes/subcategory_routes');
 var multipleRoutes=require('./routes/multiple_routes');
 var emailRoutes=require('./routes/email_routes');
 var promoRoutes=require('./routes/promo_routes');
+var ServiceRoutes=require('./routes/service_routes');
 var otpRoutes=require('./routes/otp_routes');
 var app = express();
 
@@ -36,6 +37,7 @@ app.use('/client',clientRouter);
 app.use('/signup',signUpRoutes);
 app.use('/product',productRoutes);
 app.use('/trainer',trainerRoutes);
+app.use('/service',ServiceRoutes);
 app.use('/category',categoryRoutes);
 app.use('/subcategory',subcategoryRoutes);
 app.use('/multiple',multipleRoutes);
