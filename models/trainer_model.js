@@ -21,9 +21,11 @@ var trainer={
             return db.query('update trainer_tbl set t_name=?,t_gen=?,t_dob=?,t_con=?,t_qlf=?,t_exp=? where t_id=?',[item.t_name,item.t_gen,item.t_dob,item.t_con,item.t_qlf,item.t_exp,item.t_id],callback);
         },
         updateImage:function(t_id,filename,callback){
+            console.log(filename);
+            console.log(t_id);
             if(filename != null) {
                 return db.query('update trainer_tbl set t_img=? where t_id=?',[filename,t_id],callback);
         }
         }
- }
+}
 module.exports=trainer;

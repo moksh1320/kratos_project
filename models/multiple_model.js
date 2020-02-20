@@ -3,14 +3,12 @@ var multiple = {
     deleteMultiple(item, callback) {
         return db.query('delete from product_tbl where p_id in (?)', [item], callback);
     },
-    addPromo(item, callback) {
-        console.log(item);
-        for(let i=0;i<item.length;i++){
-        return db.query('update product_tbl set p_disc=? where p_id=?', [item[i].price, item[i].id], callback);
-        }
+    addDiscount(item, callback) {
+        console.log(item)
+        return db.query('update product_tbl set p_disc=?,p_disc_price=? where p_id=?', [item.disc,item.disc_price, item.id], callback);
     },
-    deletePromo(item, callback) {
-        return db.query('update product_tbl set p_disc = Null  where p_id in (?)',[item],callback);
+    deleteDiscount(item, callback) {
+        return db.query('update product_tbl set p_disc = Null,p_disc_price = Null  where p_id in (?)',[item],callback);
     }
 }
 
