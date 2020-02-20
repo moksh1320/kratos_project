@@ -14,7 +14,7 @@ router.post('/', function (req, res, next) {
 });
 
 router.put('/', function (req, res, next) {
-    Multiple.addPromo(req.body, function (err, rows) {
+    Multiple.addDiscount(req.body, function (err, rows) {
         if (err) {
             res.json(err);
         }
@@ -25,7 +25,7 @@ router.put('/', function (req, res, next) {
 });
 
 router.post('/:id', function (req, res, next) {
-    Multiple.deletePromo(req.body, function (err, rows) {
+    Multiple.deleteDiscount(req.body, function (err, rows) {
         if (err) {
             res.json(err);
         }
