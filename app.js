@@ -17,6 +17,7 @@ var emailRoutes=require('./routes/email_routes');
 var promoRoutes=require('./routes/promo_routes');
 var ServiceRoutes=require('./routes/service_routes');
 var otpRoutes=require('./routes/otp_routes');
+var imageRoutes=require('./routes/mult_img_routes');
 var app = express();
 
 // view engine setup
@@ -43,6 +44,7 @@ app.use('/subcategory',subcategoryRoutes);
 app.use('/multiple',multipleRoutes);
 app.use('/emailsender',emailRoutes);
 app.use('/promo',promoRoutes);
+app.use('/image',imageRoutes);
 app.use('/otp',otpRoutes);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
