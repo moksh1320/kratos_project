@@ -16,7 +16,6 @@ var upload = multer({ storage: storage });
 
 router.post('/', upload.single('image'), function (req, res, next) {
     image.addImage(req.body, req.file.originalname != 'null' ? req.file.filename : null, function (err, rows) {
-        console.log(req.body);
         if (err) {
             res.json(err);
         }
@@ -45,4 +44,14 @@ router.delete('/:img_id', function (req, res, next) {
         }
     });
 });
+router.get('/:fk_s_id',function(req,res,next){
+    image.getImageById(req.params.fk_s_id, function(err,rows){
+        if(err) {
+            res.json(err);
+        }
+        else {
+            res.json(rows);
+        }
+    })
+})
 module.exports=router;
