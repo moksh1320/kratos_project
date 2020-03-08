@@ -10,10 +10,9 @@ var storage = multer.diskStorage({
     },
     filename: (req, file, cb) => {
         cb(null, file.filename + '_' + Date.now() + path.extname(file.originalname));
-        console.log('image');
     }
 });
-
+ 
 var upload = multer({ storage: storage });
 
 router.post('/', upload.single('image'), function (req, res, next) {
@@ -53,9 +52,31 @@ router.get('/',function(req,res,next){
 //         }
 //     });
 // });
+// router.post('/',function(req,res,next){
+//     trainer.addTrainer(req.body,function(err,rows){
+//         // console.log(req.body);
+//         if(err){
+//             res.json(err);
+//         }
+//         else{
+//             res.json(rows);
+//         }
+//     });
+// });
 router.delete('/:id',function(req,res,next){
     trainer.deleteTrainer(req.params.id,function(err,rows){
         if(err){
+            res.json(err);
+        }
+        else{
+            res.json(rows);
+        }
+    });
+});
+
+router.put('/:t_id',upload.single('image'), function (req, res, next) {
+    trainer.updateImage(req.params.t_id, req.file.originalname != 'null' ? req.file.filename : null, function (err, rows) {
+        if (err) {
             res.json(err);
         }
         else {
