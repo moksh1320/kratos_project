@@ -18,6 +18,11 @@ var promoRoutes=require('./routes/promo_routes');
 var ServiceRoutes=require('./routes/service_routes');
 var otpRoutes=require('./routes/otp_routes');
 var imageRoutes=require('./routes/mult_img_routes');
+var orderRoutes=require('./routes/order_table_routes');
+var orderDetailRoutes=require('./routes/order_detail_routes');
+var orderAssignedRoutes=require('./routes/ordersassigned_routes');
+var orderNotAssignedRoutes=require('./routes/ordersnotassigned_routes');
+var deliveryboyRoutes=require('./routes/deliveryboy_routes');
 var app = express();
 
 // view engine setup
@@ -46,6 +51,11 @@ app.use('/emailsender',emailRoutes);
 app.use('/promo',promoRoutes);
 app.use('/image',imageRoutes);
 app.use('/otp',otpRoutes);
+app.use('/order',orderRoutes);
+app.use('/orderdetail',orderDetailRoutes);
+app.use('/ordersassigned',orderAssignedRoutes);
+app.use('/ordersnotassigned',orderNotAssignedRoutes);
+app.use('/deliveryboy',deliveryboyRoutes)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
