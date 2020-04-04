@@ -25,7 +25,7 @@ var dboy = {
     );
   },
   updateDeliveryBoy:function(item,callback){
-    return db.query('update deliveryboy_tbl set db_name=?,db_gen,db_con=?, where db_id=?',[item.db_name,item.db_gen,item.db_con,item.db_id],callback);
+    return db.query('update deliveryboy_tbl set db_name=?,db_gen=?,db_con=?, where db_id=?',[item.db_name,item.db_gen,item.db_con,item.db_id],callback);
 },
   updateImage:function(db_id,filename,callback){
     console.log(filename);
