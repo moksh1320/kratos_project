@@ -22,6 +22,10 @@ var order = {
       callback
     );
   },
+  getOrderById:function(order_id,callback){
+    return db.query('select * from order_tbl where order_id=?',[order_id],callback);
+},
+
   deleteAllOrders: function(c_id, callback) {
     return db.qyery("delete from order_tbl where fk_c_id=?", [c_id], callback);
   },

@@ -30,6 +30,17 @@ router.get("/:order_id", function(req, res, next) {
       res.json(rows);
     }
   });
+  router.get('/:order_id', function (req, res, next) {
+    od.getOrderById(req.params.order_id, function (err, rows) {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            res.json(rows);
+        }
+    });
+});
+
 });
 
 module.exports = router;
