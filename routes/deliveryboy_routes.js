@@ -39,7 +39,7 @@ router.get("/:db_id",function(req,res,next){
 });
 
 router.post("/",upload.single('image'),function(req,res,next){
-    dboy.addDboy(req.body,req.body, req.file.originalname != 'null' ? req.file.filename : null,function(err,rows){
+    dboy.addDboy(req.body, req.file.originalname != 'null' ? req.file.filename : null,function(err,rows){
         if(err){
             res.json(err);
         }
