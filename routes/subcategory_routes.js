@@ -32,4 +32,14 @@ router.delete("/:sct_id", function(req, res, next) {
   });
 });
 
+router.get("/:fk_sct_id", function(req, res, next) {
+  subcategory.getProductBySctId(req.params.fk_sct_id, function(err, rows) {
+    if (err) {
+      res.json(err);
+    } else {
+      res.json(rows);
+    }
+  });
+});
+
 module.exports = router;
