@@ -9,6 +9,9 @@ var subcategory={
     },
     deleteSubcategory(item,callback){
         return db.query('delete from subcategory_tbl where sct_id = ?',[item],callback);
+    },
+    getProductBySctId(sct_id,callback){
+        return db.query('select * from product_tbl where fk_sct_id=?',[sct_id],callback);
     }
 }
 
