@@ -25,6 +25,7 @@ var orderNotAssignedRoutes = require("./routes/ordersnotassigned_routes");
 var deliveryboyRoutes = require("./routes/deliveryboy_routes");
 var deliveryDetailRoutes = require("./routes/delivery_detail_routes");
 var servicePurchaseRoutes=require("./routes/service_purchase_routes");
+var userHistoryRoutes=require("./routes/user_history_routes");
 var app = express();
 
 // view engine setup
@@ -59,6 +60,7 @@ app.use("/ordersnotassigned", orderNotAssignedRoutes);
 app.use("/deliveryboy", deliveryboyRoutes);
 app.use("/deliverydetail",deliveryDetailRoutes);
 app.use("/servicepurchase",servicePurchaseRoutes);
+app.use("/userhistory",userHistoryRoutes);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
