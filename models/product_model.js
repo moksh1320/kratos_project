@@ -1,7 +1,7 @@
 var db=require('../dbconnection');
 var product={
     addProduct:function(item,filename,callback){
-        return db.query('insert into product_tbl (p_name,p_price,p_dis,p_stock,p_qty,p_unit,p_ben,p_usage,p_img,fk_sct_id) values (?,?,?,?,?,?,?,?,?,?)',[item.p_name,item.p_price,item.p_dis,item.p_stock,item.p_qty,item.p_unit,item.p_ben,item.p_usage,filename,item.fk_sct_id],callback);
+        return db.query('insert into product_tbl (p_name,p_price,p_dis,p_stock,p_disc_price,p_qty,p_unit,p_ben,p_usage,p_img,fk_sct_id) values (?,?,?,?,?,?,?,?,?,?,?)',[item.p_name,item.p_price,item.p_dis,item.p_stock,item.p_price,item.p_qty,item.p_unit,item.p_ben,item.p_usage,filename,item.fk_sct_id],callback);
     },
     getAllProduct:function(callback){
         return db.query('select * from product_tbl',callback);

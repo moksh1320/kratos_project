@@ -14,6 +14,19 @@ router.get('/',function(req,res,next){
     })
 })
 
+router.get('/:pro_name',function(req,res,next){
+    promo.checkPromo(req.params.pro_name,function(err,rows){
+        if(err){
+            res.json(err);
+        }
+        else
+        {
+            res.json(rows);
+        }
+    })
+})
+
+
 router.post('/',function(req,res,next){
     console.log(req.body);
     promo.addPromo(req.body,function(err,rows){

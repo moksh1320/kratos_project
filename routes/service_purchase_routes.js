@@ -22,4 +22,14 @@ router.put("/", function (req, res, next) {
   });
 });
 
-module.exports=router;
+router.get("/", function (req, res, next) {
+  Service.getAllPurchasedService(function (err, rows) {
+    if (err) {
+      res.json(err);
+    } else {
+      res.json(rows);
+    }
+  });
+});
+
+module.exports = router;

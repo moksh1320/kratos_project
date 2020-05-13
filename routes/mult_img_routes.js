@@ -13,15 +13,15 @@ var storage = multer.diskStorage({
       null,
       file.filename + "_" + Date.now() + path.extname(file.originalname)
     );
-  }
+  },
 });
 var upload = multer({ storage: storage });
 
-router.post("/", upload.single("image"), function(req, res, next) {
+router.post("/", upload.single("image"), function (req, res, next) {
   image.addImage(
     req.body,
     req.file.originalname != "null" ? req.file.filename : null,
-    function(err, rows) {
+    function (err, rows) {
       if (err) {
         res.json(err);
       } else {
@@ -30,8 +30,9 @@ router.post("/", upload.single("image"), function(req, res, next) {
     }
   );
 });
-router.get("/", function(req, res, next) {
-  image.getAllImage(function(err, rows) {
+
+router.get("/", function (req, res, next) {
+  image.getAllImage(function (err, rows) {
     if (err) {
       res.json(err);
     } else {
@@ -39,8 +40,9 @@ router.get("/", function(req, res, next) {
     }
   });
 });
-router.delete("/:img_id", function(req, res, next) {
-  image.deleteImage(req.params.img_id, function(err, rows) {
+
+router.delete("/:img_id", function (req, res, next) {
+  image.deleteImage(req.params.img_id, function (err, rows) {
     if (err) {
       res.json(err);
     } else {
@@ -48,13 +50,28 @@ router.delete("/:img_id", function(req, res, next) {
     }
   });
 });
-router.get("/:fk_s_id", function(req, res, next) {
-  image.getImageById(req.params.fk_s_id, function(err, rows) {
+
+router.get("/:fk_s_id", function (req, res, next) {
+  image.getImageById(req.params.fk_s_id, function (err, rows) {
     if (err) {
       res.json(err);
     } else {
       res.json(rows);
     }
   });
+});
+
+router.put("/:s_id", upload.single("image"), function (req, res, next) {
+  image.updateCoverImg(
+    req.params.s_id,
+    req.file.originalname != "null" ? req.file.filename : null,
+    function (err, rows) {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(rows);
+      }
+    }
+  );
 });
 module.exports = router;

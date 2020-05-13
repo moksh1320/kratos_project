@@ -23,10 +23,18 @@ var Service = {
   deleteService: function (s_id, callback) {
     return db.query("delete from service_tbl where s_id=?", [s_id], callback);
   },
-  addService: function (item, callback) {
+  addService: function (item, filename, callback) {
+    console.log(filename); 
     return db.query(
-      "insert into service_tbl  (s_name,s_price,s_dur,s_disc,s_ben) values (?,?,?,?,?)",
-      [item.s_name, item.s_price, item.s_dur, item.s_disc, item.s_ben],
+      "insert into service_tbl  (s_name,s_price,s_dur,s_disc,s_ben,s_cover_img) values (?,?,?,?,?,?)",
+      [
+        item.s_name,
+        item.s_price,
+        item.s_dur,
+        item.s_disc,
+        item.s_ben,
+        filename
+      ],
       callback
     );
   },

@@ -13,6 +13,9 @@ var image={
     },
     getImageById:function(fk_s_id,callback){
         return db.query('select * from mul_img_tbl where fk_s_id=?',[fk_s_id],callback);
+    },
+    updateCoverImg:function(s_id,filename,callback){
+        return db.query('update service_tbl set s_cover_img=? where s_id=?',[filename,s_id],callback);
     }
 }
 module.exports=image;

@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var user = require("../models/user_history_model");
 
-router.get("/", function (req, res, next) {
+router.put("/", function (req, res, next) {
   user.getAllOrders(req.body, function (err, rows) {
     if (err) {
       res.json(err);

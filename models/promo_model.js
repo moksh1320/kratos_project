@@ -11,6 +11,9 @@ var promo = {
     deletePromo:function(pro_id,callback)
     {
         return db.query('delete from promo where pro_id=?',[pro_id],callback)
+    },
+    checkPromo:function(item,callback) {
+        return db.query('select * from promo where pro_name=?',[item],callback);
     }
 }
 
