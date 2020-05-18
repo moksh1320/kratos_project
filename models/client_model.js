@@ -4,14 +4,13 @@ var client={
         return db.query('select * from client_tbl',callback);
     },
     deleteclient:function(c_id,callback) {
-            return db.query('delete from client_tbl where c_id=?',[c_id],callback);
-        },
+        return db.query('delete from client_tbl where c_id=?',[c_id],callback);
+    },
     editclient:function(c_id,callback) {
-            return db.query('select * from client_tbl where c_id=?',[c_id],callback);
-        },
-           
+        return db.query('select * from client_tbl where c_id=?',[c_id],callback);
+    },
     updateclient:function(item,c_id,callback){
-            return db.query('update client_tbl set c_pass=?,c_name=?,c_con=?,c_dob=?,c_b_pic=?,c_a_pic=?,c_goal=?,fk_t_id=?,fk_s_id=?,p_pur_det=?,c_type=?,c_gen=?',[item.c_pass,item.c_name,item.c_con,item.c_dob,item.c_b_pic,item.c_a_pic,item.c_goal,item.fk_t_id,item.fk_s_id,item.p_pur_det,item.c_type,item.c_gen],callback);
+        return db.query('update client_tbl set c_pass=?,c_name=?,c_con=?,c_dob=?,c_b_pic=?,c_a_pic=?,c_goal=?,fk_t_id=?,fk_s_id=?,p_pur_det=?,c_type=?,c_gen=?',[item.c_pass,item.c_name,item.c_con,item.c_dob,item.c_b_pic,item.c_a_pic,item.c_goal,item.fk_t_id,item.fk_s_id,item.p_pur_det,item.c_type,item.c_gen],callback);
     },
     getlogin:function(item,callback) {
         //console.log(item);

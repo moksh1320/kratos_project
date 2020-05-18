@@ -12,7 +12,7 @@ router.get("/", function(req, res, next) {
   });
 });
 router.get("/:c_id", function(req, res, next) {
-  client.get.editclient(req.params.c_id, function(err, rows) {
+  client.editclient(req.params.c_id, function(err, rows) {
     if (err) {
       res.json(err);
     } else {
