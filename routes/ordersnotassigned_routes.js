@@ -23,18 +23,13 @@ router.put("/", function (req, res, next) {
 });
 
 router.post("/", function (req, res, next) {
-  req.body.forEach((item) => {
-    res.setHeader('Content-Type','application/json');
-    order.updateStock(item, function(err,rows){
-      if(err) {
-        res.json(err);
-      }
-      else {
-        res.writeContinue();
-      }
-    });
+  order.updateStock(req.body, function (err, rows) {
+    if (err) {
+      res.json(err);
+    } else {
+      res.json(rows);
+    }
   });
-  res.json(rows);
 });
 
 module.exports = router;

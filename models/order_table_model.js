@@ -31,7 +31,7 @@ var order = {
   },
   getAllOrders: function(callback) {
     return db.query(
-      "select ot.*,ct.c_name from delivery_detail_tbl AS ddt,order_tbl AS ot LEFT JOIN client_tbl AS ct ON ot.fk_c_id = ct.c_id where ot.order_id = ddt.fk_order_id AND ddt.status = 'complete'",
+      "select ot.*,ddt.dd_id,ct.c_name from order_tbl ot,delivery_detail_tbl ddt,client_tbl ct where ot.order_id = ddt.fk_order_id AND ot.fk_c_id=ct.c_id AND ddt.status = 'complete'",
       callback
     );
   }

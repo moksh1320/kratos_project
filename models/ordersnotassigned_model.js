@@ -2,18 +2,19 @@ var db = require("../dbconnection");
 var order = {
   getAllOrders: function (callback) {
     return db.query(
-      "select ot.*,dd_id from order_tbl ot,delivery_detail_tbl ddt where ot.order_id = ddt.fk_order_id AND ddt.fk_db_id IS NULL",
+        "select ot.*,ddt.dd_id,ct.c_name from order_tbl ot,delivery_detail_tbl ddt,client_tbl ct where ot.order_id = ddt.fk_order_id AND ot.fk_c_id=ct.c_id AND ddt.status = 'pending'",
       callback
     );
   },
   assignOrder: function (item, callback) {
     return db.query(
-      "update delivery_detail_tbl set fk_db_id =?,status='pending' where dd_id=?",
+      "update delivery_detail_tbl set fk_db_id =?,status='shipped' where dd_id=?",
       [item.db_id, item.dd_id],
       callback
     );
   },
   updateStock: function (item, callback) {
+      console.log(item.p_stock,item.p_id);
       return db.query(
         "update product_tbl set p_stock=? where p_id=?",
         [item.p_stock, item.p_id],

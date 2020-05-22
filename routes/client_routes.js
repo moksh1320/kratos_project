@@ -49,7 +49,7 @@ router.delete("/:id", function(req, res, next) {
   });
 });
 router.put("/:c_id", function(req, res, next) {
-  client.updateclient(req.params.c_id, req.body, function(err, rows) {
+  client.updateclient(req.body, req.params.c_id, function(err, rows) {
     if (err) {
       res.json(err);
     } else {
