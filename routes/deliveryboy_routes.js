@@ -50,4 +50,13 @@ router.put("/", function (req, res, next) {
     }
   });
 });
+router.post("/:login",function(req,res,next){
+  dboy.checkDboyLogin(req.body, function(err,rows){
+    if (err) {
+      res.json(err);
+    } else {
+      res.json(rows);
+    }
+  });
+})
 module.exports = router;

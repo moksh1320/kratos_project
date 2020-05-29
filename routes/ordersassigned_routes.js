@@ -12,8 +12,8 @@ router.get("/", function(req, res, next) {
   });
 });
 
-router.put("/", function(req, res, next) {
-  order.updateStatus(req.body.dd_id, function(err, rows) {
+router.put("/complentclientmail", function(req, res, next) {
+  order.sendCompleteMailClient(req.body, function(err, rows) {
     if (err) {
       res.json(err);
     } else {

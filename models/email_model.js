@@ -19,7 +19,6 @@ var demo = {
          subject: 'demo'
       }, callback);
    }
+  }
 
-
-}
 module.exports = demo;

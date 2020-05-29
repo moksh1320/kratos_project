@@ -53,5 +53,17 @@ router.put("/order_id", function(req, res, next) {
   });
 });
 
+router.post("/confirmationclientmail", function (req, res, next) {
+  order.sendConformationMailClient(req.body, function (err, message) {
+    console.log(req.body);
+    if (err) {
+      console.log(err);
+      res.json(err);
+    } else {
+      return res.json({ success: true, msg: "sent" }); //or return count for 1 or 0
+    }
+  });
+});
+
 
 module.exports = router;
