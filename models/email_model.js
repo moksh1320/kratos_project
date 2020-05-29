@@ -8,7 +8,7 @@ var demo = {
          password: 'Poojan7041182054',
          host: "smtp.gmail.com",
          ssl: true,
-         port: 465
+         port: 465   
       });
       console.log(demo.message);
 
@@ -16,7 +16,7 @@ var demo = {
          text: demo.message,
          from: 'poojanmehta2017@gmail.com',
          to: demo.receiver,
-         subject: demo.subject
+         subject: 'demo'
       }, callback);
    }
 
