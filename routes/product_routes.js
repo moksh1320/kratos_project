@@ -76,4 +76,15 @@ router.delete('/:p_id', function (req, res, next) {
         }
     });
 });
+router.post('/:multiple', upload.single('image'), function (req, res, next) {
+    product.getMultipleProducts(req.body, function (err, rows) {
+        console.log(req.body);
+        if (err) {
+            res.json(err);
+        }
+        else {
+            res.json(rows);
+        }
+    });
+});
 module.exports = router;
