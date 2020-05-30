@@ -53,7 +53,7 @@ router.put("/order_id", function(req, res, next) {
   });
 });
 
-router.post("/confirmationclientmail", function (req, res, next) {
+router.post("/:confirmationclientmail", function (req, res, next) {
   order.sendConformationMailClient(req.body, function (err, message) {
     console.log(req.body);
     if (err) {

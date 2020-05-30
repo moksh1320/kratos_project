@@ -10,15 +10,15 @@ var formatted;
 var option = {
   min: 1000,
   max: 9999,
-  integer: true
+  integer: true,
 };
 
-router.put("/", function(req, res, next) {
+router.put("/", function (req, res, next) {
   var otpnum = rn(option);
   console.log(otpnum);
   dt = dateTime.create();
   formatted = dt.format("YmdHMS");
-  otp.addOtp(otpnum, formatted, req.body, function(err, rows) {
+  otp.addOtp(otpnum, formatted, req.body, function (err, rows) {
     if (err) {
       res.json(err);
     } else {
@@ -27,8 +27,8 @@ router.put("/", function(req, res, next) {
   });
 });
 
-router.post("/", function(req, res, next) {
-  otp.getOtp(req.body, function(err, rows) {
+router.post("/", function (req, res, next) {
+  otp.getOtp(req.body, function (err, rows) {
     dt = dateTime.create();
     formatted = parseInt(dt.format("YmdHMS"));
     if (err) {
