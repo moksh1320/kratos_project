@@ -43,7 +43,7 @@ router.delete("/:c_id", function(req, res, next) {
   });
 });
 
-router.put("/order_id", function(req, res, next) {
+router.put("/:order_id", function(req, res, next) {
   order.deleteOrderById(req.params.order_id, function(err, rows) {
     if (err) {
       res.json(err);
