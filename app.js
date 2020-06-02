@@ -27,6 +27,7 @@ var deliveryDetailRoutes = require("./routes/delivery_detail_routes");
 var servicePurchaseRoutes=require("./routes/service_purchase_routes");
 var userHistoryRoutes=require("./routes/user_history_routes");
 var searchRoutes=require("./routes/search_routes");
+var dashboardRoutes=require("./routes/dashbord_routes");
 var app = express();
 
 // view engine setup
@@ -60,6 +61,7 @@ app.use("/ordersassigned", orderAssignedRoutes);
 app.use("/ordersnotassigned", orderNotAssignedRoutes);
 app.use("/deliveryboy", deliveryboyRoutes);
 app.use("/deliverydetail",deliveryDetailRoutes);
+app.use("/dashbord",dashboardRoutes);
 app.use("/servicepurchase",servicePurchaseRoutes);
 app.use("/userhistory",userHistoryRoutes);
 app.use("/search",searchRoutes);
