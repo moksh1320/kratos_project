@@ -15,7 +15,14 @@ var otp = {
       [item.c_email],
       callback
     );
-  }
+  },
+  changePassword(item, callback) {
+    return db.query(
+      "update client_tbl set c_pass=? where c_email=?",
+      [item.password, item.c_email],
+      callback
+    );
+  },
 };
 
 module.exports = otp;

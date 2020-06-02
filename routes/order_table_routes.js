@@ -43,7 +43,7 @@ router.delete("/:c_id", function(req, res, next) {
   });
 });
 
-router.put("/order_id", function(req, res, next) {
+router.put("/:order_id", function(req, res, next) {
   order.deleteOrderById(req.params.order_id, function(err, rows) {
     if (err) {
       res.json(err);
@@ -53,7 +53,7 @@ router.put("/order_id", function(req, res, next) {
   });
 });
 
-router.post("/confirmationclientmail", function (req, res, next) {
+router.post("/:confirmationclientmail", function (req, res, next) {
   order.sendConformationMailClient(req.body, function (err, message) {
     console.log(req.body);
     if (err) {

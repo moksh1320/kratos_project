@@ -1,4 +1,6 @@
 var db = require("../dbconnection");
+var email = require("emailjs/email");
+
 var order = {
   getAllOrders: function (callback) {
     return db.query(
@@ -35,9 +37,9 @@ var order = {
 
     server.send(
       {
-        text: demo.shipmentclientmessage,
+        text: demo.message,
         from: "moksh111320@gmail.com",
-        to: demo.clientreceiver,
+        to: demo.receiver,
         subject: "Your order is shipped",
       },
       callback
@@ -57,9 +59,9 @@ var order = {
 
     server.send(
       {
-        text: demo.shipmentdboymessage,
+        text: demo.message,
         from: "moksh111320@gmail.com",
-        to: demo.dboyreceiver,
+        to: demo.receiver,
         subject: "You have new order to deliever",
       },
       callback
