@@ -32,7 +32,7 @@ router.post("/", function (req, res, next) {
   });
 });
 
-router.post("/shipmentclientmail", function (req, res, next) {
+router.post("/:shipmentclientmail", function (req, res, next) {
   order.sendShipmentMailClient(req.body, function (err, message) {
     console.log(req.body);
     if (err) {
@@ -44,7 +44,7 @@ router.post("/shipmentclientmail", function (req, res, next) {
   });
 });
 
-router.put("/shipmentdboymail", function (req, res, next) {
+router.put("/:shipmentdboymail", function (req, res, next) {
   order.sendShipmentMailDboy(req.body, function (err, message) {
     console.log(req.body);
     if (err) {

@@ -27,8 +27,8 @@ var order = {
   sendShipmentMailClient: function (demo, callback) {
     console.log(demo);
     var server = email.server.connect({
-      user: "moksh111320@gmail.com",
-      password: "moksh1328@",
+      user: "poojanmehta2017@gmail.com",
+      password: "Poojan7041182054",
       host: "smtp.gmail.com",
       ssl: true,
       port: 465,
@@ -49,8 +49,8 @@ var order = {
   sendShipmentMailDboy: function (demo, callback) {
     console.log(demo);
     var server = email.server.connect({
-      user: "moksh111320@gmail.com",
-      password: "moksh1328@",
+      user: "poojanmehta2017@gmail.com",
+      password: "Poojan7041182054",
       host: "smtp.gmail.com",
       ssl: true,
       port: 465,

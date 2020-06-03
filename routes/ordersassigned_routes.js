@@ -12,12 +12,13 @@ router.get("/", function(req, res, next) {
   });
 });
 
-router.put("/complentclientmail", function(req, res, next) {
-  order.sendCompleteMailClient(req.body, function(err, rows) {
+router.put("/:complentclientmail", function(req, res, next) {
+  order.sendCompleteMailClient(req.body, function(err, message) {
     if (err) {
+      console.log(err);
       res.json(err);
     } else {
-      res.json(rows);
+      return res.json({ success: true, msg: "sent" }); //or return count for 1 or 0
     }
   });
 });
