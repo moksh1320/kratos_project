@@ -31,8 +31,11 @@ router.post("/", function (req, res, next) {
   otp.getOtp(req.body, function (err, rows) {
     dt = dateTime.create();
     formatted = parseInt(dt.format("YmdHMS"));
+    console.log(rows);
     if (err) {
       res.json(err);
+    } else if(rows.length <= 0) {
+      res.json("email not exist")
     } else if (rows[0].otp == req.body.otp) {
       exptime = parseInt(rows[0].otp_exp);
       console.log(exptime);
@@ -48,9 +51,8 @@ router.post("/", function (req, res, next) {
   });
 });
 
-
-router.put("/:change", function(req, res, next) {
-  otp.changePassword(req.body, function(err, rows) {
+router.put("/:change", function (req, res, next) {
+  otp.changePassword(req.body, function (err, rows) {
     if (err) {
       res.json(err);
     } else {
@@ -59,4 +61,14 @@ router.put("/:change", function(req, res, next) {
   });
 });
 
+router.post("/:otpmail", function (req, res, next) {
+  otp.sendOTPMail(req.body, function (err, message) {
+    if (err) {
+      console.log(err);
+      res.json(err);
+    } else {
+      return res.json({ success: true, msg: "sent" }); //or return count for 1 or 0
+    }
+  });
+});
 module.exports = router;

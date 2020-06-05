@@ -1,4 +1,5 @@
 var db = require("../dbconnection");
+var email = require("emailjs/email");
 
 var otp = {
   addOtp(otp, otp_exp, item, callback) {
@@ -20,6 +21,27 @@ var otp = {
     return db.query(
       "update client_tbl set c_pass=? where c_email=?",
       [item.password, item.c_email],
+      callback
+    );
+  },
+  sendOTPMail: function (demo, callback) {
+    console.log(demo);
+    var server = email.server.connect({
+      user: "poojanmehta2017@gmail.com",
+      password: "Poojan7041182054",
+      host: "smtp.gmail.com",
+      ssl: true,
+      port: 465,
+    });
+    console.log(demo.message);
+
+    server.send(
+      {
+        text: demo.message,
+        from: "poojanmehta2017@gmail.com",
+        to: demo.receiver,
+        subject: 'You have new otp',
+      },
       callback
     );
   },
