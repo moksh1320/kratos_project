@@ -1,0 +1,48 @@
+var express = require('express');
+var router = express.Router();
+var homepageoffer = require('../models/homepage_model');
+var multer = require('multer');
+var path = require('path');
+
+var storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/images/homepageoffer_images')
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.filename + '_' + Date.now() + path.extname(file.originalname));
+    }
+});
+
+var upload = multer({ storage: storage });
+
+router.get('/', function (req, res, next) {
+    homepageoffer.getAllOffers(function (err, rows) {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            res.json(rows);
+        }
+    });
+});
+router.get('/:offer_id', function (req, res, next) {
+    homepageoffer.getOffersById(req.params.offer_id, function (err, rows) {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            res.json(rows);
+        }
+    });
+});
+router.delete('/:offer_id', function (req, res, next) {
+    homepageoffer.deleteOffers(req.params.offer_id, function (err, rows) {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            res.json(rows);
+        }
+    });
+});
+module.exports= router;
