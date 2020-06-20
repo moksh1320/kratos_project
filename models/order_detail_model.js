@@ -23,7 +23,7 @@ var order_detail = {
       var order_id = item.fk_order_id;
       var prod_id = item.cartItems[i].product.p_id;
       var order_qty = item.cartItems[i].quantity;
-      order_total += item.cartItems[i].subtotal;
+      order_total = item.cartItems[i].subtotal;
       arr.push([order_id, prod_id, order_qty, order_total]);
       console.log(i);
     }
