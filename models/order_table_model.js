@@ -12,8 +12,8 @@ var order = {
   addOrder: function (item, callback) {
     console.log(item);
     return db.query(
-      "insert into order_tbl (order_date,pay_type,fk_c_id,pro_disc) values (?,?,?,?)",
-      [item.order_date, item.pay_type, item.fk_c_id, item.pro_disc],
+      "insert into order_tbl (order_date,fk_c_id,pro_disc) values (?,?,?)",
+      [item.order_date, item.fk_c_id, item.pro_disc],
       callback
     );
   },

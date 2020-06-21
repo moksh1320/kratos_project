@@ -32,4 +32,14 @@ router.get("/", function (req, res, next) {
   });
 });
 
+router.put("/:sp_id", function (req, res, next) {
+  Service.getPurchasedServiceByID(req.params.sp_id, function (err, rows) {
+    if (err) {
+      res.json(err);
+    } else {
+      res.json(rows);
+    }
+  });
+});
+
 module.exports = router;
