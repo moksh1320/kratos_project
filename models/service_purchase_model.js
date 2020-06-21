@@ -22,6 +22,7 @@ var Service = {
     );
   },
   getPurchasedServiceByID: function (sp_id, callback) {
+    console.log(sp_id);
     return db.query(
       "select spt.*,ct.c_name,st.s_name from service_purchase_tbl as spt,client_tbl as ct,service_tbl as st where spt.sp_id=? AND ct.c_id=spt.fk_c_id AND st.s_id=spt.fk_s_id",
       [sp_id],
