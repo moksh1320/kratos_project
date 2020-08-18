@@ -20,8 +20,8 @@ var order = {
   sendCompleteMailClient: function (demo, callback) {
     console.log(demo);
     var server = email.server.connect({
-      user: "poojanmehta2017@gmail.com",
-      password: "Poojan7041182054",
+      user: "moksh111320@gmail.com",
+      password: "123moksh02",
       host: "smtp.gmail.com",
       ssl: true,
       port: 465,

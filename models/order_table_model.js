@@ -45,8 +45,8 @@ var order = {
   sendConformationMailClient: function (demo, callback) {
     console.log(demo);
     var server = email.server.connect({
-      user: "poojanmehta2017@gmail.com",
-      password: "Poojan7041182054",
+      user: "moksh111320@gmail.com",
+      password: "123moksh02",
       host: "smtp.gmail.com",
       ssl: true,
       port: 465,
@@ -56,7 +56,7 @@ var order = {
     server.send(
       {
         text: demo.message,
-        from: "poojanmehta2017@gmail.com",
+        from: "moksh111320@gmail.com",
         to: demo.receiver,
         subject: "Your order is placed",
       },
